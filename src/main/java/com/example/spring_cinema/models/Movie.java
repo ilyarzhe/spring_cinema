@@ -2,7 +2,7 @@ package com.example.spring_cinema.models;
 
 import javax.persistence.*;
 
-@Entity(name = "movies")
+@Entity(name = "Movie")
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

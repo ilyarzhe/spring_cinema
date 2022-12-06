@@ -35,5 +35,8 @@ public class MovieService {
         movie.setDuration(duration);
         movieRepository.save(movie);
     }
+    public List<Movie> getAllMoviesUnderDuration(int duration){
+        return movieRepository.getMoviesUnderDuration(duration);
+    }
 
 }

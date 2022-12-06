@@ -23,8 +23,8 @@ public class MovieController {
         return new ResponseEntity<>(reply, HttpStatus.CREATED);
     }
     @GetMapping
-    public ResponseEntity<List<Movie>> displayAllMovies(){
-        List<Movie> movies = movieService.getAllMovies();
+    public ResponseEntity<List<Movie>> displayAllMovies(@RequestParam(value="duration")int duration){
+        List<Movie> movies = movieService.getAllMoviesUnderDuration(duration);
         return new ResponseEntity<>(movies,HttpStatus.OK);
     }
     @GetMapping(path = "/{id}")
