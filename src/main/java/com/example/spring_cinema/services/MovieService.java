@@ -4,7 +4,6 @@ import com.example.spring_cinema.models.Movie;
 import com.example.spring_cinema.models.Reply;
 import com.example.spring_cinema.repositories.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
