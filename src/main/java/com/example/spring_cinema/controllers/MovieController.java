@@ -36,4 +36,21 @@ public class MovieController {
             return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
         }
     }
+    @DeleteMapping(path ="/{id}")
+    public ResponseEntity<Reply> deleteMovieById(@PathVariable int id){
+        movieService.removeMovieById(id);
+        Reply reply = new Reply("Movie has been deleted");
+        return new ResponseEntity<>(reply,HttpStatus.OK);
+    }
+    @PatchMapping(path = "/{id}")
+    public ResponseEntity<Reply> updateMovieDuration(@PathVariable int id,
+                                                     @RequestBody int duration){
+        movieService.updateMovieDuration(id,duration);
+        if (movieService.getMovieById(id).isPresent()){
+            Reply reply = new Reply(String.format("Movie with id: %s has been updated",id));
+            return new ResponseEntity<>(reply,HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+        }
+    }
 }

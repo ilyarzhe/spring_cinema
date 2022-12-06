@@ -27,5 +27,13 @@ public class MovieService {
     public Optional<Movie> getMovieById(int id){
         return movieRepository.findById(id);
     }
+    public void removeMovieById(int id){
+        movieRepository.deleteById(id);
+    }
+    public void updateMovieDuration(int id,int duration){
+        Movie movie = movieRepository.findById(id).get();
+        movie.setDuration(duration);
+        movieRepository.save(movie);
+    }
 
 }
